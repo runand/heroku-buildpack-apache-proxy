@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [ -f $1/proxy_me ]; then
+  echo "Proxy" && exit 0
+else
+  echo "no" && exit 1
+fi
+
