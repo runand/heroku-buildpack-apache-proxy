@@ -10,6 +10,8 @@ The config files are bundled with the Buildpack itself:
 
 * conf/httpd.conf
 
+Uses the PROXY_URL config variable as the target of the reverse proxy.
+
 Meta
 ----
 
