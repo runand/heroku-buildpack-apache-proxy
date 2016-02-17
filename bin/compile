@@ -17,15 +17,12 @@ LP_DIR=`cd $(dirname $0); cd ..; pwd`
 shopt -s dotglob
 
 cd $BUILD_DIR
+if [ ! -d $BUILD_DIR/www ]; then
+  mkdir $BUILD_DIR/www
+fi
 
-# move app things to www
-mkdir -p $CACHE_DIR/www
-mv * $CACHE_DIR/www
-mv $CACHE_DIR/www .
-
-# keep Procfile
-if [ -f www/Procfile ]; then
-  mv www/Procfile .
+if [ ! -d $BUILD_DIR/conf ]; then
+  mkdir $BUILD_DIR/conf
 fi
 
 APACHE_URL="https://s3.amazonaws.com/cga-buildpack/apache-$APACHE_VERSION.tar.gz"
@@ -34,6 +31,3 @@ curl --silent --max-time 60 --location "$APACHE_URL" | tar xz
 
 # update config files
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
-
-# clean the cache
-rm -rf $CACHE_DIR/*

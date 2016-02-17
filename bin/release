@@ -6,4 +6,3 @@ cat <<EOF
 default_process_types:
   web: exec /app/apache/bin/httpd -DNO_DETACH
 EOF
-

@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-if [ -f $1/proxy_me ]; then
+if [ -f $1/proxy_on ]; then
   echo "Proxy" && exit 0
+elif [ -d $1/conf ]; then
+  echo "Proxy + Config" && exit 0
 else
   echo "no" && exit 1
 fi
